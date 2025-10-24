@@ -1,14 +1,14 @@
 def PrimeList(N):
     primes = []
-    # 遍历 2 到 N - 1 的每个数，判断是否为质数
+    # 遍历2到N-1的所有数
     for num in range(2, N):
         is_prime = True
-        # 试除判断，只需检查到 num 的平方根（优化计算量）
-        for i in range(2, int(num ** 0.5) + 1):
+        # 判断是否为质数：检查2到sqrt(num)的数
+        for i in range(2, int(math.sqrt(num)) + 1):
             if num % i == 0:
                 is_prime = False
                 break
         if is_prime:
-            primes.append(str(num))
-    # 用空格连接质数，末尾无空格
-    return " ".join(primes)
+            primes.append(str(num))  # 转为字符串，方便后续拼接
+    # 用空格连接列表元素（末尾无空格）
+    return ' '.join(primes)
